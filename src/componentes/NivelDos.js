@@ -1,14 +1,15 @@
 
-/*/    Escena del juego modo Normal      /*/
+
+/*/ Escena del juego modo Easy    /*/
+
 
 import Phaser from "phaser";
-
-class Escena extends Phaser.Scene{
+class NivelDos extends Phaser.Scene{
 
 
 constructor(){
 
-super('Game'  );      // Constructor que almacenara un key o identificador de la escena, se encarga de enviar los parametros
+super('NivelDos'  );      // Constructor que almacenara un key o identificador de la escena, se encarga de enviar los parametros
 
 }
 
@@ -16,7 +17,7 @@ super('Game'  );      // Constructor que almacenara un key o identificador de la
 
 preload(){
 
-this.load.image('1','./imagenes/1.jpg');
+this.load.image('3','./imagenes/3.jpg');
 this.load.image('barra','./imagenes/barra.png');
 this.load.image('pelota','./imagenes/pelota.png');
 this.load.image('bloqueazul','./imagenes/bloqueazul.png');
@@ -48,13 +49,13 @@ create(){
 
   /*/ creacion de imagen de fondo /*/
 
-  this.add.image(665,374,'1');
+  this.add.image(665,374,'3');
     
  /*/Creacion de la pelota /*/
   
  this.pelota = this.physics.add.image(  650,660, 'pelota');                       // se referencia a pelota y se le agrega fisicas para que pueda moverse en la pantalla.
  this.pelota.setCollideWorldBounds(true);                                        // hace posible que la pelota choque con los bordes de la pantalla.
- this.pelota.setBounce(1);                                                      // permite que la pelota rebote.
+ this.pelota.setBounce(1);                                                      // velocidad de la pelota al colisionar con un objeto
  this.pelota.setData('union', true);                                           
  
  /*/ Creacion de la barra del jugador /*/
@@ -68,15 +69,16 @@ create(){
  /*/ Creacion de los bloques /*/
 
  this.bloques = this.physics.add.staticGroup({
-    key: ['bloqueazul', 'bloqueverde', 'bloquerojo', 'bloqueazul'],   // Se crea un array que almacenara y ademas ubicara todos los bloques en la pantalla.
-    frameQuantity: 13,
+    key: ['bloqueverde'],   // Se crea un array que almacenara y ademas ubicara todos los bloques en la pantalla.
+    frameQuantity: 13,      // cantidad de bloques en la fila.
+    
     gridAlign: { 
-    width: 13, 
-    height: 4, 
-    cellWidth: 75, 
-    cellHeight: 76, 
-    x: 200, 
-    y: 150,
+    width: 13,             // Espacio entre los bloques en la fila.
+    height: 4,             // Espacio entre los bloques en las columnas
+    cellWidth: 80,        // Ancho de los bloques.
+    cellHeight: 100,      // Altura de los bloques.
+    x: 200,               // Posicion de los bloques en eje X
+    y: 300,              // Posicion de los bloques en eje Y
 
   }
 });
@@ -131,7 +133,7 @@ else {
         if (this.pelota.getData('union')) {                 
           this.pelota.setVelocity(-400, -800);              // velocidad de la pelota al despegarse de la barra del jugador  en los ejes X e Y
           this.pelota.setData('union', false);              // Permite que la pelota se separe de la barra al presionar la tecla flecha arriba.
-          this.musicaescena.play()                                 // Reproduce cancion de la escena.
+          this.musicaescena.play()                          // Reproduce cancion de la escena.
           
         }
          
@@ -206,4 +208,4 @@ init() {
 
 }
 
-export default Escena;             // Exporta la escena.
+export default NivelDos;             // Exporta la escena.

@@ -23,12 +23,12 @@ export class RestartButton {
      
       this.startButton.on('pointerover', () => {
         this.startButton.setFrame(1);
-      });                                                           // Permite la animacion del boton RESTART.
+      });                                                      
       this.startButton.on('pointerout', () => {
         this.startButton.setFrame(0);
       });
       this.startButton.on('pointerdown', () => {
-        this.relatedScene.scene.start('Game');                      // Permite que el boton redireccione a la escena del juego (Game).
+        this.relatedScene.scene.start('Menu');                      // Permite que el boton redireccione a la escena del juego (Menu).
       });
 
       
