@@ -10,34 +10,30 @@ function App() {
 
  const[ listo,setListo  ]= useState(false);
    
-useEffect( () =>{
+    useEffect( () =>{
 
-const config= {
-type: Phaser.AUTO,
-width:1300,                            // Ancho de la pantalla
-height:750,                            // Altura de la pantalla
-scene:[Game,JuegoAcabado,Ganaste],     // Se guardan las escenas del juego.
-physics: {
-default: 'arcade',
-arcade: {                               // Se habilitan las fisicas
-debug: false
+        const config= {
+            type: Phaser.AUTO,
+            width:1300,                            // Ancho de la pantalla
+            height:750,                            // Altura de la pantalla
+            scene:[Game,JuegoAcabado,Ganaste],     // Se guardan las escenas del juego.
+            physics: {
+                default: 'arcade',
+                arcade: {                               // Se habilitan las fisicas
+                    debug: false
+                }
+            }
 
-}
+        };
 
-}
+        const game = new Phaser.Game(config); //Arranca el juego.
+        game.events.on("LISTO", setListo) //Trigger cuando el juego esta completamente cargado.
 
-};
-
-const game = new Phaser.Game(config);
-game.events.on("LISTO", setListo)
-
-return() =>{
-
-setListo(false);
-game.destroy(true);
-
-}
-}, [listo]);
+        return() =>{ //Return que evita que se generen duplicados en el lienzo.
+            setListo(false);
+            game.destroy(true);
+        }
+    }, [listo]);
 
 }
 
