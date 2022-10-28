@@ -28,7 +28,7 @@ export class RestartButton {
         this.startButton.setFrame(0);
       });
       this.startButton.on('pointerdown', () => {
-        this.relatedScene.scene.start('Game');                      // Permite que el boton redireccione a la escena del juego (Game).
+        this.relatedScene.scene.start('Inicio');                      // Permite que el boton redireccione a la escena del juego (Game).
       });
 
       

@@ -59,8 +59,8 @@ create(){
 
  //Creacion de los bloques 
  this.bloques = this.physics.add.staticGroup({
-    key: ['bloqueverde'],   
-    frameQuantity: 10,      
+    key: ['bloqueverde', 'bloqueverde', 'bloquerojo', 'bloqueazul'],   
+    frameQuantity: 15,      
     
     gridAlign: { 
     width: 13,             
@@ -68,7 +68,7 @@ create(){
     cellWidth: 80,        
     cellHeight: 100,      
     x: 200,               
-    y: 300,              
+    y: 100,              
 
   }
 });

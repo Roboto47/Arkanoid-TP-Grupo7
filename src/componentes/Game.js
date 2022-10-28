@@ -13,7 +13,7 @@ super('Game'  );      // Constructor que almacenara un key o identificador de la
 
 preload(){
 
-this.load.image('fondo','./imagenes/fondo.jpg');
+this.load.image('fondo','./imagenes/fondoFacil.jpg');
 this.load.image('barra','./imagenes/barra.png');
 this.load.image('pelota','./imagenes/pelota.png');
 this.load.image('bloqueazul','./imagenes/bloqueazul.png');
@@ -65,8 +65,8 @@ create(){
  /*/ Creacion de los bloques /*/
 
  this.bloques = this.physics.add.staticGroup({
-    key: ['bloqueazul', 'bloqueverde', 'bloquerojo', 'bloqueazul'],   // Se crea un array que almacenara y ademas ubicara todos los bloques en la pantalla.
-    frameQuantity: 13,
+    key: ['bloqueazul'],   // Se crea un array que almacenara y ademas ubicara todos los bloques en la pantalla.
+    frameQuantity: 8,
     gridAlign: { 
     width: 13, 
     height: 4, 
