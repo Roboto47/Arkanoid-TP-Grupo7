@@ -1,6 +1,7 @@
 
 import Phaser from 'phaser';
 import Game from './componentes/Game.js';
+import Alien from './componentes/NotSpaceInvader.js';
 import { Menu } from './componentes/Menu.js';
 import { useEffect, useState } from 'react';
 import  { JuegoAcabado } from './componentes/GameOver.js'
@@ -17,7 +18,7 @@ function App() {
             type: Phaser.AUTO,
             width:1300,                            // Ancho de la pantalla
             height:750,                            // Altura de la pantalla
-            scene:[Menu, Game,JuegoAcabado,Ganaste],     // Se guardan las escenas del juego.
+            scene:[Menu, Game,JuegoAcabado,Ganaste, Alien],     // Se guardan las escenas del juego.
             physics: {
                 default: 'arcade',
                 arcade: {                               // Se habilitan las fisicas

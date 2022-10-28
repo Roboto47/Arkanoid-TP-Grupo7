@@ -2,7 +2,7 @@
 /*/ Escena Menu /*/
 
 import { LvlunoButton } from "./BotoonLvlUno.js";   // Se importa el componente lvlunoButton.
-import { lvlDosButton } from './BotoonLvlDos.js'    // Se importa el componente LvlNormal
+import { lvlAlienButton } from './BottonNotSpace.js'    // Se importa el componente LvlNormal
 import Phaser from "phaser";
 export class Menu extends Phaser.Scene {
 
@@ -13,7 +13,7 @@ export class Menu extends Phaser.Scene {
       super('Menu');
 
       this.LvlunoButton = new LvlunoButton(this);           // Constructores para la escena y  los  botones.
-      this.LvlNormal = new lvlDosButton(this);
+      this.LvlNormal = new lvlAlienButton(this);
 
    }
 
