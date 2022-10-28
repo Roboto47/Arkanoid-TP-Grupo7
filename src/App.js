@@ -19,10 +19,9 @@ type: Phaser.AUTO,
 width:1300,                                            // Ancho de la pantalla
 height:750,                                           // Altura de la pantalla
 scene:[Menu,JuegoAcabado,Ganaste,Game,NivelDos],     // Se guardan las escenas del juego.
-physics: {
+physics: {                                          // se habilita las fisicas del juego.
 default: 'arcade',
-arcade: {                               // Se habilitan las fisicas
-debug: false
+arcade: {                                          
 
 }
 

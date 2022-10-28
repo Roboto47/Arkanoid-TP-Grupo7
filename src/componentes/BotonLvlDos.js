@@ -3,8 +3,8 @@
 /*/  Componente boton que tiene por funcion pasar a la escena Modo de juego Normal  /*/
 
    export class LvlNormal {
-    constructor(scene) {
-    this.relatedScene = scene;    // Constructor por defecto para la escena.
+      constructor(scene) {
+      this.relatedScene = scene;    // Constructor por defecto para la escena.
                      
     }
 
@@ -27,15 +27,9 @@
     
     
     });
-
-      
+ 
      
-
     }
     
-   
-
-   
-
   
 }

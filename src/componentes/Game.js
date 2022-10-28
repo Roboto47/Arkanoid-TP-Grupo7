@@ -85,7 +85,7 @@ this.physics.add.collider(this.pelota, this.bloques, this.bloqueColision, null, 
 
 
 
-// Implemeta un texto (Marcador) "Score" en pantalla.
+/*/ Implemeta un texto (Marcador) "Score" en pantalla /*/
 
    this.scoreText = this.add.text(1150, 25, 'SCORE: 0', { 
    fontSize: '25px', 
@@ -138,8 +138,6 @@ else {
         
       }
 
-     
-
 }
 
 /*/ Condicional que cambia a la escena  Game Over /*/
@@ -159,7 +157,7 @@ if (this.pelota.y > 700) {
 bloqueColision(pelota,bloques) {
  
     this.score++;
-    this.scoreText.setText('Score: ' + this.score);  // Cada vez que se detecta una colision suma un puntaje en el marcador Score.
+    this.scoreText.setText('SCORE: ' + this.score);  // Cada vez que se detecta una colision suma un puntaje en el marcador Score.
     this.bloquedestruccion.play();                   // Reproduce sonido de destruccion de los bloques
     this.barrasonido.play() 
 

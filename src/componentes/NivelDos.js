@@ -61,7 +61,7 @@ create(){
  /*/ Creacion de la barra del jugador /*/
 
  this.barra = this.physics.add.image(  650,700, 'barra').setImmovable();      // se añade fisicas a la barra, por lo tanto caera por la fuerzade de gravedad.
- this.barra.setCollideWorldBounds(true);                                     // La barra del jugador choca con los bordes de la pantalla.
+ this.barra.setCollideWorldBounds(true);                                     // La barra del jugador choca con los bordes de la pantalla y no se puede mover fuera de ellos.
  this.barra.body.allowGravity= false;                                       // se anula la gravedad al objeto y permanece estatico.
  this.cursors = this.input.keyboard.createCursorKeys();                    // se agrega un input o entrada de registro de teclas para poder mover al objeto con el teclado.
  this.physics.add.collider(this.pelota, this.barra);
@@ -161,7 +161,7 @@ if (this.pelota.y > 700) {
 bloqueColision(pelota,bloques) {
  
     this.score++;
-    this.scoreText.setText('Score: ' + this.score);  // Cada vez que se detecta una colision suma un puntaje en el marcador Score.
+    this.scoreText.setText('SCORE: ' + this.score);  // Cada vez que se detecta una colision suma un puntaje en el marcador Score.
     this.bloquedestruccion.play();                   // Reproduce sonido de destruccion de los bloques
     this.barrasonido.play() 
 
