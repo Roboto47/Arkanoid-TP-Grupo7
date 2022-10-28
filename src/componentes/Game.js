@@ -16,7 +16,6 @@ class Escena extends Phaser.Scene {
     this.load.image('bloqueazul', './imagenes/bloqueazul.png');
     this.load.image('bloquerojo', './imagenes/bloquerojo.png');
     this.load.image('bloqueverde', './imagenes/bloqueverde.png');
-    this.load.image('AlienVerde', './imagenes/AlienVerde.png');
     this.load.audio('musicaescena', './musica/escena.mp3');
     this.load.audio('gameover', './musica/gameover.mp3');
     this.load.audio('gameover2', './musica/gameover2.mp3');
@@ -62,11 +61,11 @@ class Escena extends Phaser.Scene {
     /*/ Creacion de los bloques /*/
 
     this.bloques = this.physics.add.staticGroup({
-      key: ['bloqueazul', 'AlienVerde', 'bloquerojo', 'bloqueverde'],   // Se crea un array que almacenara y ademas ubicara todos los bloques en la pantalla.
+      key: ['bloqueazul', 'bloquerojo', 'bloqueverde'],   // Se crea un array que almacenara y ademas ubicara todos los bloques en la pantalla.
       frameQuantity: 34, //Cantidad maxima de bloques de cada color
       gridAlign: {
         width: 17, //Cantidad maxima de bloques por fila.
-        height: 8, //Cantindad de filas de bloques (Siempre tratar que sea multiplo a la cantidad maxima de bloques para evitar filas vacias)
+        height: 6, //Cantindad de filas de bloques (Siempre tratar que sea multiplo a la cantidad maxima de bloques para evitar filas vacias)
         cellWidth: 75, //Distancia de ancho entre cada bloque
         cellHeight: 42, //Distancia de alto entre cada bloque
         x: 50, //Posicion de los bloques en X
