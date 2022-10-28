@@ -16,9 +16,9 @@ export class Ganaste extends Phaser.Scene{
 
       preload(){
         this.load.image('fondo','./imagenes/fondo.jpg');
-        this.load.image('ganaste','./imagenes/ganaste.png');       // Metodo que carga a las imagenes desde su directorio
-        this.RestartButton.preload();                              // Precarga al boton RESTART
-        
+        this.load.image('ganaste','./imagenes/ganaste.png');             // Metodo que carga a las imagenes desde su directorio
+        this.RestartButton.preload();                                    // Precarga al boton RESTART
+        this.load.audio('sonidobotones', './musica/sonidobotones.mp3');
       }
       /*/ Metodo que se encarga de crear las imagenes precargadas/*/
      
@@ -27,9 +27,17 @@ export class Ganaste extends Phaser.Scene{
          this.add.image(665,374,'fondo');
          this.ganaste= this.add.image(650,270 ,'ganaste'  );       // Crea la imagen de fondo de la escena.
          this.RestartButton.create();                            // Crea el boton RESTART.
-        
+         this.sonidobotones = this.sound.add('sonidobotones');
 
       }
 
       
+    update(){
+
+      this.sonidobotones.play();     // Reproduce sonido del boton al clickear 
+
+
+    }
+
+
 }

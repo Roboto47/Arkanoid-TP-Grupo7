@@ -4,7 +4,9 @@ import Game from './componentes/Game.js';
 import { useEffect, useState } from 'react';
 import  { JuegoAcabado } from './componentes/GameOver.js'
 import { Ganaste } from './componentes/Victoria.js';
+import { Menu } from './componentes/Menu.js';
 import './App.css';
+import NivelDos from './componentes/NivelDos.js';
 
 function App() {
 
@@ -14,13 +16,12 @@ useEffect( () =>{
 
 const config= {
 type: Phaser.AUTO,
-width:1300,                            // Ancho de la pantalla
-height:750,                            // Altura de la pantalla
-scene:[Game,JuegoAcabado,Ganaste],     // Se guardan las escenas del juego.
-physics: {
+width:1300,                                            // Ancho de la pantalla
+height:750,                                           // Altura de la pantalla
+scene:[Menu,JuegoAcabado,Ganaste,Game,NivelDos],     // Se guardan las escenas del juego.
+physics: {                                          // se habilita las fisicas del juego.
 default: 'arcade',
-arcade: {                               // Se habilitan las fisicas
-debug: false
+arcade: {                                          
 
 }
 
