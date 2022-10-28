@@ -31,10 +31,6 @@ export class JuegoAcabado extends Phaser.Scene{
         this.gameover= this.add.image(650,270 ,'gameover'   );   // Se crean las imagenes de la escena y el boton restart.
         this.RestartButton.create();
         
-      
-  
-        
-     
        
       }
 
