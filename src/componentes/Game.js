@@ -1,22 +1,22 @@
 import Phaser from "phaser";
 
-class Escena extends Phaser.Scene{
+class Escena extends Phaser.Scene {
 
 
-  constructor(){
-    super('Game'  );      // Constructor que almacenara un key o identificador de la escena, se encarga de enviar los parametros
+  constructor() {
+    super('Game');      // Constructor que almacenara un key o identificador de la escena, se encarga de enviar los parametros
   }
 
-/*/ Se precargan las imagenes y los sonidos del juego desde su directorio /*/
+  /*/ Se precargan las imagenes y los sonidos del juego desde su directorio /*/
 
-  preload(){
-
-    this.load.image('fondo','./imagenes/fondo.jpg');
-    this.load.image('barra','./imagenes/barra.png');
-    this.load.image('pelota','./imagenes/pelota.png');
-    this.load.image('bloqueazul','./imagenes/bloqueazul.png');
-    this.load.image('bloquerojo','./imagenes/bloquerojo.png');
-    this.load.image('bloqueverde','./imagenes/bloqueverde.png');
+  preload() {
+    this.load.image('fondo', './imagenes/fondo.jpg');
+    this.load.image('barra', './imagenes/barra.png');
+    this.load.image('pelota', './imagenes/pelota.png');
+    this.load.image('bloqueazul', './imagenes/bloqueazul.png');
+    this.load.image('bloquerojo', './imagenes/bloquerojo.png');
+    this.load.image('bloqueverde', './imagenes/bloqueverde.png');
+    this.load.image('AlienVerde', './imagenes/AlienVerde.png');
     this.load.audio('musicaescena', './musica/escena.mp3');
     this.load.audio('gameover', './musica/gameover.mp3');
     this.load.audio('gameover2', './musica/gameover2.mp3');
@@ -24,15 +24,14 @@ class Escena extends Phaser.Scene{
     this.load.audio('youwin', './musica/youwin.mp3');
     this.load.audio('youwin2', './musica/youwin2.mp3');
     this.load.audio('barrasonido', './musica/barrasonido.mp3');
-
   }
 
-/*/  Se crean las imagenes y sonidos /*/
+  /*/  Se crean las imagenes y sonidos /*/
 
-  create(){
+  create() {
 
-   /*/ Creacion de musica y sonido /*/
-  
+    /*/ Creacion de musica y sonido /*/
+
     this.musicaescena = this.sound.add('musicaescena');
     this.gameover = this.sound.add('gameover');
     this.gameover2 = this.sound.add('gameover2');
@@ -41,67 +40,67 @@ class Escena extends Phaser.Scene{
     this.bloquedestruccion = this.sound.add('bloquedestruccion');
     this.barrasonido = this.sound.add('barrasonido');
 
-  /*/ creacion de imagen de fondo /*/
+    /*/ creacion de imagen de fondo /*/
 
-    this.add.image(665,374,'fondo');
-    
- /*/Creacion de la pelota /*/
-  
-  this.pelota = this.physics.add.image(  650,660, 'pelota');                       // se referencia a pelota y se le agrega fisicas para que pueda moverse en la pantalla.
-  this.pelota.setCollideWorldBounds(true);                                        // hace posible que la pelota choque con los bordes de la pantalla.
-  this.pelota.setBounce(1);                                                      // permite que la pelota rebote.
-  this.pelota.setData('union', true);                                           
- 
- /*/ Creacion de la barra del jugador /*/
+    this.add.image(665, 374, 'fondo');
 
-  this.barra = this.physics.add.image(  650,700, 'barra').setImmovable();      // se añade fisicas a la barra, por lo tanto caera por la fuerzade de gravedad.
-  this.barra.setCollideWorldBounds(true);                                     // La barra del jugador choca con los bordes de la pantalla.
-  this.barra.body.allowGravity= false;                                       // se anula la gravedad al objeto y permanece estatico.
-  this.cursors = this.input.keyboard.createCursorKeys();                    // se agrega un input o entrada de registro de teclas para poder mover al objeto con el teclado.
-  this.physics.add.collider(this.pelota, this.barra);
+    /*/Creacion de la pelota /*/
 
- /*/ Creacion de los bloques /*/
+    this.pelota = this.physics.add.image(650, 660, 'pelota');                       // se referencia a pelota y se le agrega fisicas para que pueda moverse en la pantalla.
+    this.pelota.setCollideWorldBounds(true);                                        // hace posible que la pelota choque con los bordes de la pantalla.
+    this.pelota.setBounce(1);                                                      // permite que la pelota rebote.
+    this.pelota.setData('union', true);
 
-  this.bloques = this.physics.add.staticGroup({
-      key: ['bloqueazul', 'bloqueverde', 'bloquerojo', 'bloqueazul'],   // Se crea un array que almacenara y ademas ubicara todos los bloques en la pantalla.
-      frameQuantity: 13,
-      gridAlign: { 
-        width: 13, 
-        height: 4, 
-        cellWidth: 75, 
-        cellHeight: 76, 
-        x: 200, 
-        y: 150,
+    /*/ Creacion de la barra del jugador /*/
+
+    this.barra = this.physics.add.image(650, 700, 'barra').setImmovable();      // se añade fisicas a la barra, por lo tanto caera por la fuerzade de gravedad.
+    this.barra.setCollideWorldBounds(true);                                     // La barra del jugador choca con los bordes de la pantalla.
+    this.barra.body.allowGravity = false;                                       // se anula la gravedad al objeto y permanece estatico.
+    this.cursors = this.input.keyboard.createCursorKeys();                    // se agrega un input o entrada de registro de teclas para poder mover al objeto con el teclado.
+    this.physics.add.collider(this.pelota, this.barra);
+
+    /*/ Creacion de los bloques /*/
+
+    this.bloques = this.physics.add.staticGroup({
+      key: ['bloqueazul', 'AlienVerde', 'bloquerojo', 'bloqueverde'],   // Se crea un array que almacenara y ademas ubicara todos los bloques en la pantalla.
+      frameQuantity: 34, //Cantidad maxima de bloques de cada color
+      gridAlign: {
+        width: 17, //Cantidad maxima de bloques por fila.
+        height: 8, //Cantindad de filas de bloques (Siempre tratar que sea multiplo a la cantidad maxima de bloques para evitar filas vacias)
+        cellWidth: 75, //Distancia de ancho entre cada bloque
+        cellHeight: 42, //Distancia de alto entre cada bloque
+        x: 50, //Posicion de los bloques en X
+        y: 80, //Posicion de los bloques en Y
       }
     });
 
-  this.physics.add.collider(this.pelota, this.bloques, this.bloqueColision, null, this);   // Agrega colision entre la pelota y los bloques.
+    this.physics.add.collider(this.pelota, this.bloques, this.bloqueColision, null, this);   // Agrega colision entre la pelota y los bloques.
 
 
 
-// Implemeta un texto (Marcador) "Score" en pantalla.
+    // Implemeta un texto (Marcador) "Score" en pantalla.
 
-   this.scoreText = this.add.text(1150, 25, 'SCORE: 0', { 
-      fontSize: '25px', 
-      fill: 'yellow', 
+    this.scoreText = this.add.text(1150, 25, 'SCORE: 0', {
+      fontSize: '25px',
+      fill: 'yellow',
       fontFamily: 'Franklin Gothic Medium',
-  
+
     });
 
-}
+  }
 
   update() {
     /*/ Movimiento del jugador /*/
     if (this.cursors.left.isDown) {
-      this.barra.setVelocityX(-1200);            // si se presiona la tecla flecha izquierda y si se mantiene apretada se produce un movimiento en el eje X hacia la izquierda.
+      this.barra.setVelocityX(-600);            // si se presiona la tecla flecha izquierda y si se mantiene apretada se produce un movimiento en el eje X hacia la izquierda.
 
       if (this.pelota.getData('union')) {
-        this.pelota.setVelocityX(-1200);
+        this.pelota.setVelocityX(-600);
       }
     } else if (this.cursors.right.isDown) {      // si se presiona la tecla flecha derecha y se mantiene apretada se produce un movimiento en el eje X hacia la derecha.
-      this.barra.setVelocityX(1200);
+      this.barra.setVelocityX(600);
       if (this.pelota.getData('union')) {
-        this.pelota.setVelocityX(1200);
+        this.pelota.setVelocityX(600);
       }
     } else {
       this.barra.setVelocityX(0);                     // se detiene la barra del jugador si no presiona una tecla.
@@ -110,7 +109,7 @@ class Escena extends Phaser.Scene{
       }
       if (this.cursors.up.isDown) {
         if (this.pelota.getData('union')) {
-          this.pelota.setVelocity(-400, -800);              // velocidad de la pelota al despegarse de la barra del jugador  en los ejes X e Y
+          this.pelota.setVelocity(-300, -600);              // velocidad de la pelota al despegarse de la barra del jugador  en los ejes X e Y
           this.pelota.setData('union', false);              // Permite que la pelota se separe de la barra al presionar la tecla flecha arriba.
           this.musicaescena.play()                                 // Reproduce cancion de la escena.          
         }
@@ -124,9 +123,9 @@ class Escena extends Phaser.Scene{
       this.mostrarGameOver();        // Cuando se cumple la condicion se llama al metodo en cuestion, y este ejecuta el cambio de escena.
     }
 
-}
+  }
 
-/*/ Metodo que aplica la colision entre la pelota  los bloques y muestra la pantalla (escena) de Victoria /*/
+  /*/ Metodo que aplica la colision entre la pelota  los bloques y muestra la pantalla (escena) de Victoria /*/
 
   bloqueColision(pelota, bloques) {
     this.score++;
