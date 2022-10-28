@@ -6,8 +6,7 @@ import  { JuegoAcabado } from './componentes/GameOver.js'
 import { Ganaste } from './componentes/Victoria.js';
 import { Menu } from './componentes/Menu.js';
 import './App.css';
-import NivelDos from './componentes/NivelDos.js';
-
+import NivelDos  from './componentes/NivelDos.js';
 function App() {
 
  const[ listo,setListo  ]= useState(false);
