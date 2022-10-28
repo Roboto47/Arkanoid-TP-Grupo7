@@ -14,7 +14,7 @@ export class LvlunoButton {
   create() {
     this.startButton = this.relatedScene.add.image(637, 500, 'botonuno').setInteractive();    // Se crea y se ubica ña imagen en la pantalla.
     this.startButton.on('pointerdown', () => {                       // Funcion que activa el cambio de escena al clickear el boton.
-      this.relatedScene.scene.start('NivelDos');                      // Permite que el boton redireccione a la escena del juego (NivelDos).
+      this.relatedScene.scene.start('Game');                      // Permite que el boton redireccione a la escena del juego (NivelDos).
     });
   }
 }
