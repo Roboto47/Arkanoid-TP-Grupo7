@@ -12,13 +12,13 @@ super('NivelAvanzado' );
 //Precargando imagen y audio
 preload(){
 
-this.load.image('fondo','./imagenes/fondo.jpg');
+this.load.image('fondo','./imagenes/fondoAvanzado.jpg');
 this.load.image('barra','./imagenes/barra.png');
 this.load.image('pelota','./imagenes/pelota.png');
 this.load.image('bloqueazul','./imagenes/bloqueazul.png');
 this.load.image('bloquerojo','./imagenes/bloquerojo.png');
 this.load.image('bloqueverde','./imagenes/bloqueverde.png');
-this.load.audio('musicaescena', './musica/escena.mp3');
+this.load.audio('musicaescena', './musica/giga.mp3');
 this.load.audio('gameover', './musica/gameover.mp3');
 this.load.audio('gameover2', './musica/gameover2.mp3');
 this.load.audio('bloquedestruccion', './musica/bloquedestruccion.mp3');
@@ -60,7 +60,7 @@ create(){
  //Creacion de los bloques 
  this.bloques = this.physics.add.staticGroup({
     key: ['bloqueverde', 'bloqueverde', 'bloquerojo', 'bloqueazul'],   
-    frameQuantity: 15,      
+    frameQuantity: 13,      
     
     gridAlign: { 
     width: 13,             

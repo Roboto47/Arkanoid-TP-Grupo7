@@ -66,7 +66,7 @@ create(){
 
  this.bloques = this.physics.add.staticGroup({
     key: ['bloqueazul'],   // Se crea un array que almacenara y ademas ubicara todos los bloques en la pantalla.
-    frameQuantity: 8,
+    frameQuantity: 26,
     gridAlign: { 
     width: 13, 
     height: 4, 

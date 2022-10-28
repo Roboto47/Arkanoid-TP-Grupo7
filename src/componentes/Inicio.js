@@ -21,7 +21,7 @@ export class Inicio extends Phaser.Scene{
         this.load.image('inicio','./imagenes/fondo.jpg');
         this.BotonFacil.preload();                                   
         this.BotonAvanzado.preload();                   
-      
+
       }
          
       create(){
